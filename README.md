@@ -1,4 +1,4 @@
-##Legend of Zelda - A API to the Past
+Legend of Zelda - A API to the Past
 
 A Legend of Zelda - A Link to the Past API. 
 
