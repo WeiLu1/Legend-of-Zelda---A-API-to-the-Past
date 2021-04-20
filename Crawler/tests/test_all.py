@@ -18,3 +18,8 @@ def test_bosses_page():
 
 def test_dungeons_page():
     assert requests.get(MAIN_SITE + '/wiki/A_Link_to_the_Past_Dungeons') is not None
+
+
+def test_items_page():
+    assert requests.get(MAIN_SITE + '/wiki/A_Link_to_the_Past_Items') is not None
+
