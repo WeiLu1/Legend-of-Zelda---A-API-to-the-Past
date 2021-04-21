@@ -1,4 +1,4 @@
-Name,Race,Gender,Locations
+name,race,gender,locations
 Link,Hylian,Male,['Hyrule']
 Zelda,Hylian,Female,"['Hyrule', 'Hyrule Castle', 'Sanctuary', 'Turtle Rock']"
 Agahnim,,,"['Hyrule Castle Tower', ""Ganon's Tower""]"
