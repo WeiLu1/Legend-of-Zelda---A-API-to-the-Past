@@ -1,5 +1,5 @@
 name,boss,enemies,items,rewards
-Hyrule Castle ,Agahnim,"['Soldier', 'Sword Soldier', 'Archer', 'Trooper']","[""Fighter's Sword"", ""Fighter's Shield"", 'Boomerang']",['Zelda']
+Hyrule Castle ,,"['Soldier', 'Sword Soldier', 'Archer', 'Trooper']","[""Fighter's Sword"", ""Fighter's Shield"", 'Boomerang']",['Zelda']
 Secret Passage,,"['Keese', 'Rat', 'Rope']",['Lamp'],
 Eastern Palace ,Armos Knight ,"['Popo', 'Eyegore', 'Eyegore', 'Red Stalfos ', 'Grey Stalfos ', 'Anti-Fairy']",['Bow'],"['Heart Container', 'Pendant of Courage']"
 Desert Palace ,Lanmola ,"['Popo', 'Beamos', 'Green Eyegore', 'Red Eyegore', 'Green Leever', 'Purple Leever', 'Blue Devalant', 'Red Devalant']",['Power Glove'],"['Heart Container', 'Pendant of Power']"
