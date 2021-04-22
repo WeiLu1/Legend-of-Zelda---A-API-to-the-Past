@@ -1,7 +1,14 @@
 from sqlalchemy_utils import database_exists
-from flask_restful import Resource
 from api import db_uri, app, api
 from api.models import populate_everything
+from api.resources import (
+    HelloWorld,
+    Bosses,
+    Characters,
+    Dungeons,
+    Enemies,
+    Items
+)
 
 
 @app.before_first_request
@@ -10,18 +17,12 @@ def populate_database():
         populate_everything()
 
 
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
-
-
-class HelloSecondPage(Resource):
-    def get(self):
-        return {'hello': 'second'}
-
-
 api.add_resource(HelloWorld, '/')
-api.add_resource(HelloSecondPage, '/secondpage')
+api.add_resource(Bosses, '/bosses')
+api.add_resource(Characters, '/characters')
+api.add_resource(Dungeons, '/dungeons')
+api.add_resource(Enemies, '/enemies')
+api.add_resource(Items, '/items')
 
 
 if __name__ == "__main__":
