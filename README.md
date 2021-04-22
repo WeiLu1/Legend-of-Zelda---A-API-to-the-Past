@@ -6,7 +6,7 @@ Technologies to use to create this:
 - BeautifulSoup
 - SQLite
 - SQLAlchemy
-- Flask and FlaskRESTful
+- Flask and Flask-RESTful
 - Pytest
 
 
