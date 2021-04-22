@@ -32,4 +32,4 @@ for character in character_list:
     all_characters.append(character_dict)
 
 character_df = pd.DataFrame.from_records(all_characters)
-character_df.to_csv('bosses.csv', index=False)
+character_df.to_csv('characters.csv', index=False)
