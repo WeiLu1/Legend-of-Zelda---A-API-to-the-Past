@@ -4,10 +4,15 @@ from api.models import populate_everything
 from api.resources import (
     HelloWorld,
     Bosses,
+    Boss,
     Characters,
+    Character,
     Dungeons,
+    Dungeon,
     Enemies,
-    Items
+    Enemy,
+    Items,
+    Item
 )
 
 
@@ -19,10 +24,15 @@ def populate_database():
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Bosses, '/bosses')
+api.add_resource(Boss, '/bosses/<boss_id>')
 api.add_resource(Characters, '/characters')
+api.add_resource(Character, '/characters/<character_id>')
 api.add_resource(Dungeons, '/dungeons')
+api.add_resource(Dungeon, '/dungeons/<dungeon_id>')
 api.add_resource(Enemies, '/enemies')
+api.add_resource(Enemy, '/enemies/<enemy_id>')
 api.add_resource(Items, '/items')
+api.add_resource(Item, '/items/<item_id>')
 
 
 if __name__ == "__main__":

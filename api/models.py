@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from . import db, project_path
+from flask_restful import abort
 
 
 class BossesModel(db.Model):
@@ -10,6 +11,28 @@ class BossesModel(db.Model):
     location = db.Column(db.String(40), nullable=False)
     rewards = db.Column(db.String(50), nullable=True)
     # dungeons = db.relationship('Dungeons', lazy=True)
+
+    @staticmethod
+    def get_all_bosses():
+        return BossesModel.query.all()
+
+    @staticmethod
+    def get_boss_by_id(boss_id):
+        if boss_id.isdigit():
+            boss = BossesModel.query.filter_by(id=boss_id).first()
+        else:
+            boss = BossesModel.query.filter_by(name=boss_id).first()
+
+        if not boss:
+            abort(404, message='boss not found')
+
+        return boss
+
+    # @classmethod
+    # def get_boss_by_id(cls, boss_id):
+    #     if boss_id:
+    #         boss = cls.query.filter_by(id=boss_id).first()
+    #         return boss
 
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, effective weapons: {self.effective_weapons}, location: {self.location}, rewards: {self.rewards}\n"
@@ -25,6 +48,22 @@ class CharactersModel(db.Model):
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, race: {self.race}, gender: {self.gender}, location: {self.location}\n"
 
+    @staticmethod
+    def get_all_characters():
+        return CharactersModel.query.all()
+
+    @staticmethod
+    def get_character_by_id(character_id):
+        if character_id.isdigit():
+            character = CharactersModel.query.filter_by(id=character_id).first()
+        else:
+            character = CharactersModel.query.filter_by(name=character_id).first()
+
+        if not character:
+            abort(404, message='character not found')
+
+        return character
+
 
 class DungeonsModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -39,6 +78,22 @@ class DungeonsModel(db.Model):
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, boss: {self.boss}, enemies: {self.enemies}, items: {self.items}, rewards: {self.rewards}, boss id: {self.boss_id}\n"
 
+    @staticmethod
+    def get_all_dungeons():
+        return DungeonsModel.query.all()
+
+    @staticmethod
+    def get_dungeon_by_id(dungeon_id):
+        if dungeon_id.isdigit():
+            dungeon = DungeonsModel.query.filter_by(id=dungeon_id).first()
+        else:
+            dungeon = DungeonsModel.query.filter_by(name=dungeon_id).first()
+
+        if not dungeon:
+            abort(404, message='dungeon not found')
+
+        return dungeon
+
 
 class EnemiesModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -47,6 +102,22 @@ class EnemiesModel(db.Model):
 
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, location: {self.location}\n"
+
+    @staticmethod
+    def get_all_enemies():
+        return EnemiesModel.query.all()
+
+    @staticmethod
+    def get_enemy_by_id(enemy_id):
+        if enemy_id.isdigit():
+            enemy = EnemiesModel.query.filter_by(id=enemy_id).first()
+        else:
+            enemy = EnemiesModel.query.filter_by(name=enemy_id).first()
+
+        if not enemy:
+            abort(404, message='enemy not found')
+
+        return enemy
 
 
 class ItemsModel(db.Model):
@@ -57,6 +128,22 @@ class ItemsModel(db.Model):
 
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, location: {self.location}, uses: {self.uses}\n"
+
+    @staticmethod
+    def get_all_items():
+        return ItemsModel.query.all()
+
+    @staticmethod
+    def get_item_by_id(item_id):
+        if item_id.isdigit():
+            item = ItemsModel.query.filter_by(id=item_id).first()
+        else:
+            item = ItemsModel.query.filter_by(name=item_id).first()
+
+        if not item:
+            abort(404, message='item not found')
+
+        return item
 
 
 def populate_everything():

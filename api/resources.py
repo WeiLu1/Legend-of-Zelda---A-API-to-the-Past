@@ -56,33 +56,67 @@ class HelloWorld(Resource):
 class Bosses(Resource):
     @marshal_with(boss_fields)
     def get(self):
-        bosses = BossesModel.query.all()
-        return bosses
+        return BossesModel.get_all_bosses()
+
+
+class Boss(Resource):
+    @marshal_with(boss_fields)
+    def get(self, boss_id):
+        boss = BossesModel.get_boss_by_id(boss_id)
+        return boss
 
 
 class Characters(Resource):
     @marshal_with(character_fields)
     def get(self):
-        characters = CharactersModel.query.all()
+        characters = CharactersModel.get_all_characters()
         return characters
+
+
+class Character(Resource):
+    @marshal_with(character_fields)
+    def get(self, character_id):
+        character = CharactersModel.get_character_by_id(character_id)
+        return character
 
 
 class Dungeons(Resource):
     @marshal_with(dungeons_fields)
     def get(self):
-        dungeons = DungeonsModel.query.all()
+        dungeons = DungeonsModel.get_all_dungeons()
         return dungeons
+
+
+class Dungeon(Resource):
+    @marshal_with(dungeons_fields)
+    def get(self, dungeon_id):
+        dungeon = DungeonsModel.get_dungeon_by_id(dungeon_id)
+        return dungeon
 
 
 class Enemies(Resource):
     @marshal_with(enemies_fields)
     def get(self):
-        enemies = EnemiesModel.query.all()
+        enemies = EnemiesModel.get_all_enemies()
         return enemies
+
+
+class Enemy(Resource):
+    @marshal_with(enemies_fields)
+    def get(self, enemy_id):
+        enemy = EnemiesModel.get_enemy_by_id(enemy_id)
+        return enemy
 
 
 class Items(Resource):
     @marshal_with(items_fields)
     def get(self):
-        items = ItemsModel.query.all()
+        items = ItemsModel.get_all_items()
+        return items
+
+
+class Item(Resource):
+    @marshal_with(items_fields)
+    def get(self, item_id):
+        items = ItemsModel.get_item_by_id(item_id)
         return items
