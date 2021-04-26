@@ -9,58 +9,69 @@ Technologies to use to create this:
 - Flask and Flask-RESTful
 - Pytest
 
+ 
+## Endpoints
+If ID is added in the endpoint then it will get the resource specific to the ID. \
+ID can be the number or name. \
+If no ID is added, an entire list of will be returned.
 
-Get all characters API example response:
+- ### Bosses/< id >
+Return a list of bosses. 
+```
+[
+    {
+        "id": 1,
+        "name": "Armos Knight",
+        "effective_weapons": "['Sword', 'Bow']",
+        "location": "Eastern Palace",
+        "rewards": "['Heart Container', 'Pendant of Courage']"
+    }
+]
+```
 
+- ### Characters/< id >
+Return a list of characters.
 ```
 {
-	"data": [{
-			"id": 1,
-			"name": "Link",
-			"race": "Hylian",
-			"gender": "Male",
-			"Location": ["Hyrule"]
-		},
-		{
-			"id": 2,
-			"name": "Zelda",
-			"race": "Hylian",
-			"gender": "female",
-			"Location": ["Hyrule"]
-		}
-	]
+    "id": 3,
+    "name": "Agahnim",
+    "race": null,
+    "gender": null,
+    "location": "['Hyrule Castle Tower', \"Ganon's Tower\"]"
 }
 ```
-\
-Get all bosses API example response: 
-```
-{
-	"data": [{
-			"id": 20,
-			"name": "Trinexx",
-			"location": "Turtle Rock",
-            "effective weapons": ["Fire rod", "Ice rod", "Sword"],
-            "rewards": ["Heart Container", "Seventh Crystal"]
-        }
-	]
-}
-```
-\
-Get all items API example response:
 
+- ### Dungeons/< id >
+Return a list of dungeons.
 ```
 {
-	"data": [{
-			"id": 10,
-			"name": "Tempered Sword",
-			"location": "Swordsmith's Shop"
-		},
-		{
-			"id": 11,
-			"name": "Golden Sword",
-			"location": "Pyramid of Power"
-		}
-	]
+    "id": 4,
+    "name": "Desert Palace",
+    "boss": "Lanmola",
+    "enemies": "['Popo', 'Beamos', 'Green Eyegore', 'Red Eyegore', 'Green Leever', 'Purple Leever', 'Blue Devalant', 'Red Devalant']",
+    "items": "['Power Glove']",
+    "rewards": "['Heart Container', 'Pendant of Power']",
+    "boss_id": 2
 }
 ```
-\
+
+- ### Enemies/< id >
+Return a list of enemies.
+```
+{
+    "id": 23,
+    "name": "Green Soldier",
+    "location": "Light World Overworld and Dungeons"
+}
+```
+
+- ### Items/< id >
+Return a list of items.
+```
+{
+    "id": 2,
+    "name": "Master Sword",
+    "location": "Lost Woods",
+    "uses": "The legendary sword that seals the darkness"
+}
+```
